@@ -32,14 +32,14 @@ def get_sent(sender):
 
 
 def encode_account(data):
-    account_num = '' + data[-1][-4:]
+    account_num = '**' + data[-1][-4:]
     return data[0] + ' ' + account_num
 
 
 def encode_card(data):
     payment_system = ' '.join(data[:-1]) + ' '
     card_name = data[-1]
-    card_number = card_name[0:4] + ' ' + card_name[5:7] + ' ****' + card_name[12:]
+    card_number = card_name[0:4] + ' ' + card_name[5:7] + '** ****' + card_name[12:]
     return payment_system + card_number
 
 
