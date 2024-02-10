@@ -4,7 +4,7 @@ from datetime import datetime
 
 
 def get_operations():
-    with open("operations.json", "r", encoding='utf-8-sig') as f:
+    with open("../operations.json", "r", encoding='utf-8-sig') as f:
         operations = json.load(f)
     return operations
 
