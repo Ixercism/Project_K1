@@ -11,14 +11,14 @@ def get_operations():
     """
     Загружает список операций из файла
     """
-    with open(DATA_DIR, "r", encoding='utf-8-sig') as f:
-        operations = json.load(f)
+    with open(DATA_DIR, "r", encoding='utf-8-sig') as file:
+        operations = json.load(file)
     return operations
 
 
 def get_sorted_operations():
     """
-    Сортирует операции по дате и результату и оставляет последние 5
+    Сортирует операции по дате и результату
     """
     operate_ = []
     i = get_operations()
@@ -41,14 +41,14 @@ def get_sent(sender):
             return encode_account(data)
         else:
             return encode_card(data)
-    return ""
+    return "Неизвестно"
 
 
 def encode_account(data):
     """
     Скрывает номер счет операции
     """
-    account_num = '' + data[-1][-4:]
+    account_num = '**' + data[-1][-4:]
     return data[0] + ' ' + account_num
 
 
@@ -58,7 +58,7 @@ def encode_card(data):
     """
     payment_system = ' '.join(data[:-1]) + ' '
     card_name = data[-1]
-    card_number = card_name[0:4] + ' ' + card_name[4:6] + ' ****' + ' ' + card_name[12:]
+    card_number = card_name[0:4] + ' ' + card_name[4:6] + '** ****' + ' ' + card_name[12:]
     return payment_system + card_number
 
 
@@ -70,4 +70,4 @@ def print_date(source_date):
         data_time = datetime.fromisoformat(source_date)
         return data_time.strftime('%d.%m.%Y')
     except ValueError:
-        return '<invalid date format>'
+        return "invalid date format"

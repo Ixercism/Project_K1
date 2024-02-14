@@ -42,4 +42,4 @@ def test_print_date():
     assert print_date("2019-11-19T09:22:25.899614") == "19.11.2019"
     assert print_date("2019-11-05T12:04:13.781725") == "05.11.2019"
     assert print_date("2019-11-13T17:38:04.800051") == "13.11.2019"
-    assert print_date("08.12.2019") == '<invalid date format>'nt("Maestro 7810846596785568") == "Maestro 7810 46** ****5568"
+    assert print_date("08.12.2019") == "invalid date format"
