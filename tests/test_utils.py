@@ -19,7 +19,7 @@ def test_get_sorted_operations():
 
 
 def test_encode_account():
-    assert get_sent("Счет 77613226829885488381") == "Счет 8381"
+    assert get_sent("Счет 77613226829885488381") == "Счет **8381"
     assert get_sent("Счет 90424923579946435907") == "Счет **5907"
     assert get_sent("Счет 43241152692663622869") == "Счет **2869"
     assert get_sent("Счет 35158586384610753655") == "Счет **3655"
@@ -28,12 +28,12 @@ def test_encode_account():
 
 
 def test_encode_card():
-    assert get_sent("Maestro 7810846596785568") == "Maestro 7810 84 **** 5568"
+    assert get_sent("Maestro 7810846596785568") == "Maestro 7810 84** **** 5568"
     assert get_sent("Visa Classic 2842878893689012") == "Visa Classic 2842 87** **** 9012"
 
 
 def test_get_sent():
-    assert get_sent(None) == ""
+    assert get_sent(None) == "Неизвестно"
 
 
 def test_print_date():
